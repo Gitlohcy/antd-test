@@ -1,11 +1,11 @@
 
 import React from 'react'
-import { MainMenu } from '@/components/sideMenu'
+import Dashboard from '@/modules/Dashboard'
 
 export default () => {
     return(
         <div>
-            <MainMenu></MainMenu>
+            <Dashboard></Dashboard>
         </div>
     )
 }
