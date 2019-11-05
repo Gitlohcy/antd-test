@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
 				<Layout style={{minHeight: "100vh"}}>
 					<Header
 						style={{
-							background: "#fff",
+							background: "#EEEEEE",
 							padding: "0 24px",
                             margin: "0 16px",
                             marginBottom: "10px",
@@ -29,7 +29,7 @@ class Dashboard extends React.Component {
 						<div
 							style={{
 								padding: 24,
-								background: "#fff",
+								background: "#EEEEEE",
 								minHeight: "90vh"
 							}}
 						>
