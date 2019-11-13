@@ -24,7 +24,8 @@ class NotificationCard extends React.Component<Props> {
 			<div className="card-cointainer">
 				<Card
 					className="card"
-					bordered={false}
+                    bordered={false}
+                    //change to title={<CardCover title={title} color={color}/>}
 					cover={<CardCover title={title} color={color}/>}
 					style={{
 						borderRadius: "10px",

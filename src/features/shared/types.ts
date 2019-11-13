@@ -1,0 +1,1 @@
+export type LoadingState = "REQUEST" | "SUCCESS" | "FAILURE"
