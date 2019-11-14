@@ -8,7 +8,7 @@ export type Error = {
 
 export const baseURL =
     process.env.NODE_ENV === 'development'
-        ? 'http://www.ktinvesting.com/api'
+        ? 'https://jsonplaceholder.typicode.com/todos'
         : process.env.REACT_APP_BASE_URL;
 
 export const ExecQueryData = async <R, P = any>(url: string, method: Methods = 'GET', data?: P) => {

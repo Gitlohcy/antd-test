@@ -6,7 +6,7 @@ import { notActions } from '.';
 // import { AllActions } from '@/infrastucture/rootAction'
 
 export const fetchNotificationData = (action: any): Promise<notTypes.jsonPlaceholder | Error> => {
-    const url = `/article-list`;
+    const url = `/1`;
     return ExecQueryData(url);
 };
 
