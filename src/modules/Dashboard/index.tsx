@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Layout, Icon } from "antd";
+import { Layout, Icon, notification } from "antd";
 
 import { FixedSider } from '@/components/SideMenu'
 import { DashboardGrid } from '@/components/ContentGrid'
@@ -10,16 +10,18 @@ import { connect } from 'react-redux';
 import { IRootState } from '@/infrastructure/rootState';
 import { notSelectors, notActions } from '@/features';
 
-type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+type Props = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 const { Header, Content, Footer, Sider } = Layout;
 
-class Dashboard extends React.Component {
+class Dashboard extends React.PureComponent<Props> {
     
-    
+    componentDidUpdate(){
+        console.log('props',this.props)
+    }
 
     render() {
-        console.log(this.props);
+        console.log('props2',this.props)
 		return (
             
 			<Layout style={{ minHeight: "100vh" }}>
@@ -54,16 +56,18 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (s: IRootState) => ({
-    placeholder: notSelectors.placeholder,
-    isDataFetching_placeholder: notSelectors.isDataFetching_placeholder
+    notification: notSelectors.notification(s),
+    placeholder: notSelectors.placeholder(s),
+    isDataFetching_placeholder: notSelectors.isDataFetching_placeholder(s),
+    isDataFetching_notification: notSelectors.isDataFetching_notification(s)
 });
 
 const  mapDispatchToProps = () => ({
-    fetchNotificationAsync: notActions.fetchNotificationAsync.request
+    fetchNotificationAsync: notActions.fetchNotificationAsync.request,
+    fetchPlaceholderAsync: notActions.fetchPlaceholderAsync.request
 })
 
-export default Dashboard;
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps,
-// )(Dashboard);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Dashboard);

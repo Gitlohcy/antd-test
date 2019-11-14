@@ -5,6 +5,7 @@ import {notApis} from '@/features';
 export function* queriesSagas() {
     yield all([
         takeLatest(ActionList.NOTIFICATION_LIST_ASYNC_REQUEST, notApis.fetchNotificationDataAsync),
+        takeLatest(ActionList.PLACEHOLDER_ASYNC_REQUEST, notApis.fetchPlaceholderDataAsync)
     ]);
 }
 
